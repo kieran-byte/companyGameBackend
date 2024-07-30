@@ -1,17 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const divisionController = require('../controllers/divisionController');
+const locationController = require('../controllers/locationController');
+const productController = require('../controllers/productController');
 
-
-
-
-//Divisions
-router.get('/divisions', divisionController.getAllDivisions);
+// Divisions
+router.post('/divisions', divisionController.createDivision);
 router.get('/divisions/:divisionId', divisionController.getDivisionById);
-router.post('/create-division', divisionController.createDivision);
-router.put('/update-division/:divisionId', divisionController.updateDivision);
-router.put('/transfer-ownership/:divisionId', divisionController.transferOwnership);
-
+router.get('/divisions', divisionController.getAllDivisions);
+router.put('/divisions/:divisionId', divisionController.updateDivision);
+router.put('/divisions/:divisionId/transfer', divisionController.transferOwnership);
+router.delete('/divisions/:divisionId', divisionController.deleteDivision);
 
 // Locations
 router.post('/locations', locationController.createLocation);
@@ -29,13 +28,7 @@ router.delete('/products/:productId', productController.deleteProduct);
 
 
 
-// Divisions
-router.post('/divisions', divisionController.createDivision);
-router.get('/divisions/:divisionId', divisionController.getDivisionById);
-router.get('/divisions', divisionController.getAllDivisions);
-router.put('/divisions/:divisionId', divisionController.updateDivision);
-router.put('/divisions/:divisionId/transfer', divisionController.transferOwnership);
-router.delete('/divisions/:divisionId', divisionController.deleteDivision);
+
 
 
 
