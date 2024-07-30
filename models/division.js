@@ -1,9 +1,9 @@
 const db = require('../config/db');
 
-exports.createDivision = (companyId, locationId, type, marketingBudget) => {
+exports.createDivision = (company_id, location_id, type, marketingBudget) => {
     return new Promise((resolve, reject) => {
         const query = 'INSERT INTO divisions (company_id, location_id, type, marketingBudget) VALUES (?, ?, ?, ?)';
-        db.query(query, [companyId, locationId, type, marketingBudget], (err, result) => {
+        db.query(query, [company_id, location_id, type, marketingBudget], (err, result) => {
             if (err) {
                 return reject(err);
             }

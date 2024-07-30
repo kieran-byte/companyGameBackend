@@ -3,7 +3,7 @@ const divisionModel = require('../models/division');
 exports.getAllDivisions = async (req, res) => {
     try {
         const divisions = await divisionModel.getAllDivisions();
-        res.status(200).json(divisions);
+        res.status(200).json({ divisions, text: "Hello world running" });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
@@ -11,8 +11,8 @@ exports.getAllDivisions = async (req, res) => {
 
 exports.createDivision = async (req, res) => {
     try {
-        const { companyId, locationId, type, budget } = req.body;
-        const result = await divisionModel.createDivision(companyId, locationId, type, budget);
+        const { company_id, location_id, type, marketingBudget } = req.body;
+        const result = await divisionModel.createDivision(company_id, location_id, type, marketingBudget);
         res.status(201).json(result);
     } catch (err) {
         res.status(500).json({ error: err.message });
