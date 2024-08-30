@@ -4,6 +4,7 @@ const divisionController = require('../controllers/divisionController');
 const locationController = require('../controllers/locationController');
 const productController = require('../controllers/productController');
 const companyController = require('../controllers/companyController');
+const transactionController = require('../controllers/transactionController');
 
 // Divisions
 router.post('/createDivision', divisionController.createDivision);
@@ -38,7 +39,13 @@ router.delete('/companies/:companyId', companyController.deleteCompany);
 
 
 
+router.post('/transactions', transactionController.createTransaction);
+router.get('/transactions/:id', transactionController.getTransactionById);
+router.get('/transactions', transactionController.getAllTransactions);
+router.put('/transactions/:id', transactionController.updateTransaction);
+router.delete('/transactions/:id', transactionController.deleteTransaction);
 
-// ToDo: routes for locations, companies, products, divisionProducts, transactions, gameState, and marketTrends
+
+// TODO: routes for locations, companies, products, divisionProducts, transactions, gameState, and marketTrends
 
 module.exports = router;
